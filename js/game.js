@@ -59,74 +59,74 @@ function resumeGame(){
     console.log("Text Replaced");
     if(usermove == "Charg"){
         $("#leftplayer").attr("src", "").attr("width", "0");
-        $("#leftplayer").attr("src", "./img/charging.gif").attr("width", chargingsize);
+        $("#leftplayer").attr("src", "../img/charging.gif").attr("width", chargingsize);
         userCharge++;
     }
     if(cpumove == "Charg"){
         $("#rightplayer").attr("src", "").attr("width", "0");
-        $("#rightplayer").attr("src", "./img/charging.gif").attr("width", chargingsize);
+        $("#rightplayer").attr("src", "../img/charging.gif").attr("width", chargingsize);
         CPUCharge++;
     }
     if (usermove == "Block") {
       $("#leftplayer").attr("src", "").attr("width", "0");
-      $("#leftplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+      $("#leftplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
     }
     if (cpumove == "Block") {
       $("#rightplayer").attr("src", "").attr("width", "0");
-      $("#rightplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+      $("#rightplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
     }
     if (usermove == "Attack") {
       $("#rightplayer").attr("src", "").attr("width", "0");
-      $("#rightplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+      $("#rightplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
       $("#leftplayer").attr("src", "").attr("width", "0");
-      $("#leftplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+      $("#leftplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
     }
     if (cpumove == "Attack") {
       $("#rightplayer").attr("src", "").attr("width", "0");
-      $("#rightplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+      $("#rightplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
       $("#leftplayer").attr("src", "").attr("width", "0");
-      $("#leftplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+      $("#leftplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
     }
     if(usermove == "Attack"){
         if(userCharge > 0) {
           userCharge--;
           $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+          $("#leftplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
           if(cpumove != "Block"){
               $("#rightplayer").attr("src", "").attr("width", "0");
-              $("#rightplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+              $("#rightplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
               CPULives--;
           } else {
               $("#rightplayer").attr("src", "").attr("width", "0");
-              $("#rightplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+              $("#rightplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
           }
         } else if(cpumove == "Attack" && CPUCharge > 0){
           $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+          $("#leftplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
         } else {
           $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "./img/stay.png").attr("width", staysize);
+          $("#leftplayer").attr("src", "../img/stay.png").attr("width", staysize);
         }
     }
     if(cpumove == "Attack"){
         if(CPUCharge > 0){
           $("#rightplayer").attr("src", "").attr("width", "0");
-          $("#rightplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+          $("#rightplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
           CPUCharge--;
           if(usermove != "Block"){
               $("#leftplayer").attr("src", "").attr("width", "0");
-              $("#leftplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+              $("#leftplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
               userLives--;
           } else {
               $("#leftplayer").attr("src", "").attr("width", "0");
-              $("#leftplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+              $("#leftplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
           }
         } else if(usermove == "Attack" && userCharge > 0){
           $("#rightplayer").attr("src", "").attr("width", "0");
-          $("#rightplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+          $("#rightplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
         }else{
           $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "./img/stay.png").attr("width", staysize);
+          $("#leftplayer").attr("src", "../img/stay.png").attr("width", staysize);
         }
     }
     turnWrapup();
@@ -137,12 +137,12 @@ function resumeGame(){
              $("h4,table,.end").remove();
              $("body").append("<h4>"+ foe + " wins!</h4>");
              $("#leftplayer").attr("src", "").attr("width", "0");
-             $("#leftplayer").attr("src", "./img/dead.png").attr("width", "300");
+             $("#leftplayer").attr("src", "../img/dead.png").attr("width", "300");
         } else if(CPULives < 1){
              $("h4,table,.end").remove();
              $("body").append("<h3 style='font-family: Verdana;'><b>"+ clientuser + " wins!</b></h3>");
              $("#rightplayer").attr("src", "").attr("width", "0");
-             $("#rightplayer").attr("src", "./img/dead.png").attr("width", "300");
+             $("#rightplayer").attr("src", "../img/dead.png").attr("width", "300");
         } else {
             $("#movepick").remove();
             setTimeout(gui, 3500);
