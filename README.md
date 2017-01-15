@@ -8,4 +8,4 @@ Gain one Charge.
 ### Attack: 
 Attack the opponent. Uses up one Charge.
 ### Block:
-Block an Opponents Attack(Does not use Charge).
+Block an Opponents Attack (Does not use Charge).
