@@ -59,74 +59,48 @@ function resumeGame(){
     console.log("Text Replaced");
     if(usermove == "Charg"){
         $("#leftplayer").attr("src", "").attr("width", "0");
-        $("#leftplayer").attr("src", "../img/charging.gif").attr("width", chargingsize);
+        $("#leftplayer").attr("src", "../charge/img/charging.gif").attr("width", chargingsize);
         userCharge++;
     }
     if(cpumove == "Charg"){
         $("#rightplayer").attr("src", "").attr("width", "0");
-        $("#rightplayer").attr("src", "../img/charging.gif").attr("width", chargingsize);
+        $("#rightplayer").attr("src", "../charge/img/charging.gif").attr("width", chargingsize);
         CPUCharge++;
     }
     if (usermove == "Block") {
       $("#leftplayer").attr("src", "").attr("width", "0");
-      $("#leftplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
+      $("#leftplayer").attr("src", "../charge/img/blocking.gif").attr("width", blockingsize);
     }
     if (cpumove == "Block") {
       $("#rightplayer").attr("src", "").attr("width", "0");
-      $("#rightplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
+      $("#rightplayer").attr("src", "../charge/img/blocking.gif").attr("width", blockingsize);
     }
     if (usermove == "Attack") {
       $("#rightplayer").attr("src", "").attr("width", "0");
-      $("#rightplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
+      $("#rightplayer").attr("src", "../charge/img/hit.gif").attr("width", hitsize);
       $("#leftplayer").attr("src", "").attr("width", "0");
-      $("#leftplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
+      $("#leftplayer").attr("src", "../charge/img/attacking.gif").attr("width", attackingsize);
     }
     if (cpumove == "Attack") {
       $("#rightplayer").attr("src", "").attr("width", "0");
-      $("#rightplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
+      $("#rightplayer").attr("src", "../charge/img/attacking.gif").attr("width", attackingsize);
       $("#leftplayer").attr("src", "").attr("width", "0");
-      $("#leftplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
+      $("#leftplayer").attr("src", "../charge/img/hit.gif").attr("width", hitsize);
     }
     if(usermove == "Attack"){
         if(userCharge > 0) {
           userCharge--;
-          $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
           if(cpumove != "Block"){
-              $("#rightplayer").attr("src", "").attr("width", "0");
-              $("#rightplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
               CPULives--;
-          } else {
-              $("#rightplayer").attr("src", "").attr("width", "0");
-              $("#rightplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
           }
-        } else if(cpumove == "Attack" && CPUCharge > 0){
-          $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
-        } else {
-          $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "../img/stay.PNG").attr("width", staysize);
         }
     }
     if(cpumove == "Attack"){
         if(CPUCharge > 0){
-          $("#rightplayer").attr("src", "").attr("width", "0");
-          $("#rightplayer").attr("src", "../img/attacking.gif").attr("width", attackingsize);
           CPUCharge--;
           if(usermove != "Block"){
-              $("#leftplayer").attr("src", "").attr("width", "0");
-              $("#leftplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
               userLives--;
-          } else {
-              $("#leftplayer").attr("src", "").attr("width", "0");
-              $("#leftplayer").attr("src", "../img/blocking.gif").attr("width", blockingsize);
           }
-        } else if(usermove == "Attack" && userCharge > 0){
-          $("#rightplayer").attr("src", "").attr("width", "0");
-          $("#rightplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
-        }else{
-          $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "../img/stay.PNG").attr("width", staysize);
         }
     }
     turnWrapup();
