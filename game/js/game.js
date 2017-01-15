@@ -1,6 +1,6 @@
 var stop = false;
 var usermove = "";
-var moves = ["charging","blocking","attacking"];
+var moves = ["Charg","Block","Attack"];
 var userCharge = 0;
 var CPUCharge = 0;
 var userLives = 3;
@@ -8,18 +8,20 @@ var clientuser = "Hydrosaur";
 var CPULives = 3;
 var turns = 0;
 var cpumove = moves[Math.floor((Math.random() * 3) + 0)];
-var fakeusers = "Gigastrength Deadlyinx TreeEater PackManBrainlure Carnalpleasure Sharpcharm Snarelure Skullbone Burnblaze Emberburn Emberfire Evilember Firespawn Flameblow SniperGod TalkBomber SniperWish RavySnake WebTool TurtleCat BlogWobbles LuckyDusty CouchChiller VisualMaster DeathDog ZeroReborn TechHater eGremlin BinaryMan FastChef JunkTop PurpleCharger CodeBuns BunnyJinx GoogleCat StrangeWizard Fuzzy_Logic New_Cliche Nojokur Illusionz Spazyfool Supergrass Dreamworx Fried_Sushi Need_TLC Raving_Cute Lunatick Garbage Harmless_Venom Lord_Tryzalot Sir_Gallonhead MPmaster King_Martha Spamalot Soft_member Evil_kitten SomethingNew takes2long askme Bidwell".split(" ");
-var foe = fakeusers[Math.floor((Math.random() * fakeusers.length) + 0)];
+var foe = 'ARealPerson';
+var blockingsize = '230';
+var attackingsize = '600';
+var chargingsize = '130';
+var staysize = '230';
+var hitsize = '330';
 function start() {
   gui();
 }
 
 function gui(){
-  $(".gui").replaceWith("<h4>What move are you going to use? <button onclick='charge();' style='color: yellow;'>Charge</button><button onclick='attack();' style='color: red;'>Attack</button><button onclick='block();' style='color: lightgray;'>Block</button><button onclick='endgame();'>End Game</button></h4><br class='end'>");
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  $("#leftplayer").attr("src", "./img/stay.png").attr("width", "130");
+  $("#rightplayer").attr("src", "./img/stay.png").attr("width", "130");
+  $(".gui").append("<h4 id='movepick'>What move are you going to use? <button onclick='charge();' style='color: yellow;'>Charge</button><button onclick='attack();' style='color: red;'>Attack</button><button onclick='block();' style='color: lightgray;'>Block</button><button onclick='endgame();'>End Game</button></h4><br class='end'>");
 }
 
 function turnWrapup() {
@@ -30,15 +32,15 @@ function turnWrapup() {
 }
 
 function charge() {
-  usermove = "charging";
+  usermove = "Charg";
   resumeGame();
 }
 function attack() {
-  usermove = "attacking";
+  usermove = "Attack";
   resumeGame();
 }
 function block() {
-  usermove = "blocking";
+  usermove = "Block";
   resumeGame();
 }
 function endgame() {
@@ -47,26 +49,84 @@ function endgame() {
 }
 
 function resumeGame(){
-    cpumove = moves[Math.floor((Math.random() * 3) + 0)];
+    if(CPUCharge > 0){
+      cpumove = moves[Math.floor((Math.random() * 3) + 0)];
+    } else {
+      cpumove = 'Charg';
+    }
     $("#comment").remove();
-    $("body").append("<div id='comment'><h4>"+ foe +" was "+ cpumove +" while you were "+ usermove +"</h4><br class='end'></div>");
+    $("body").append("<div id='comment'><h4>"+ foe +" was "+ cpumove +"ing while you were "+ usermove +"ing</h4><br class='end'></div>");
     console.log("Text Replaced");
-    if(usermove == "charging"){
+    if(usermove == "Charg"){
+        $("#leftplayer").attr("src", "").attr("width", "0");
+        $("#leftplayer").attr("src", "./img/charging.gif").attr("width", chargingsize);
         userCharge++;
     }
-    if(usermove == "attacking" && userCharge > 0){
-        userCharge--;
-        if(cpumove != "blocking"){
-            CPULives--;
-        }
-    }
-    if(cpumove == "charging"){
+    if(cpumove == "Charg"){
+        $("#rightplayer").attr("src", "").attr("width", "0");
+        $("#rightplayer").attr("src", "./img/charging.gif").attr("width", chargingsize);
         CPUCharge++;
     }
-    if(cpumove == "attacking" && CPUCharge > 0){
-        CPUCharge--;
-        if(usermove != "blocking"){
-            userLives--;
+    if (usermove == "Block") {
+      $("#leftplayer").attr("src", "").attr("width", "0");
+      $("#leftplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+    }
+    if (cpumove == "Block") {
+      $("#rightplayer").attr("src", "").attr("width", "0");
+      $("#rightplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+    }
+    if (usermove == "Attack") {
+      $("#rightplayer").attr("src", "").attr("width", "0");
+      $("#rightplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+      $("#leftplayer").attr("src", "").attr("width", "0");
+      $("#leftplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+    }
+    if (cpumove == "Attack") {
+      $("#rightplayer").attr("src", "").attr("width", "0");
+      $("#rightplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+      $("#leftplayer").attr("src", "").attr("width", "0");
+      $("#leftplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+    }
+    if(usermove == "Attack"){
+        if(userCharge > 0) {
+          userCharge--;
+          $("#leftplayer").attr("src", "").attr("width", "0");
+          $("#leftplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+          if(cpumove != "Block"){
+              $("#rightplayer").attr("src", "").attr("width", "0");
+              $("#rightplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+              CPULives--;
+          } else {
+              $("#rightplayer").attr("src", "").attr("width", "0");
+              $("#rightplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+          }
+        } else if(cpumove == "Attack" && CPUCharge > 0){
+          $("#leftplayer").attr("src", "").attr("width", "0");
+          $("#leftplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+        } else {
+          $("#leftplayer").attr("src", "").attr("width", "0");
+          $("#leftplayer").attr("src", "./img/stay.png").attr("width", staysize);
+        }
+    }
+    if(cpumove == "Attack"){
+        if(CPUCharge > 0){
+          $("#rightplayer").attr("src", "").attr("width", "0");
+          $("#rightplayer").attr("src", "./img/attacking.gif").attr("width", attackingsize);
+          CPUCharge--;
+          if(usermove != "Block"){
+              $("#leftplayer").attr("src", "").attr("width", "0");
+              $("#leftplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+              userLives--;
+          } else {
+              $("#leftplayer").attr("src", "").attr("width", "0");
+              $("#leftplayer").attr("src", "./img/blocking.gif").attr("width", blockingsize);
+          }
+        } else if(usermove == "Attack" && userCharge > 0){
+          $("#rightplayer").attr("src", "").attr("width", "0");
+          $("#rightplayer").attr("src", "./img/hit.gif").attr("width", hitsize);
+        }else{
+          $("#leftplayer").attr("src", "").attr("width", "0");
+          $("#leftplayer").attr("src", "./img/stay.png").attr("width", staysize);
         }
     }
     turnWrapup();
@@ -76,11 +136,16 @@ function resumeGame(){
         if(userLives < 1){
              $("h4,table,.end").remove();
              $("body").append("<h4>"+ foe + " wins!</h4>");
+             $("#leftplayer").attr("src", "").attr("width", "0");
+             $("#leftplayer").attr("src", "./img/dead.png").attr("width", "300");
         } else if(CPULives < 1){
              $("h4,table,.end").remove();
              $("body").append("<h3 style='font-family: Verdana;'><b>"+ clientuser + " wins!</b></h3>");
+             $("#rightplayer").attr("src", "").attr("width", "0");
+             $("#rightplayer").attr("src", "./img/dead.png").attr("width", "300");
         } else {
-            gui();
+            $("#movepick").remove();
+            setTimeout(gui, 3500);
             $(".end").remove();
         }
     }
