@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+}
+
+#title {
+  margin: 0 auto;
+}
+
+h4,h3 {
+  font-family: Verdana;
+}
+
+th, td {
+  border: 2px solid lightblue;
+  font-family: Verdana;
+}
+
+button {
+  background-color: gray;
+  border-style: none;
+}
+
+.wrapup {
+    margin: 0 auto;
+}
