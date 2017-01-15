@@ -111,12 +111,12 @@ function resumeGame(){
              $("h4,table,.end").remove();
              $("body").append("<h4>"+ foe + " wins!</h4>");
              $("#leftplayer").attr("src", "").attr("width", "0");
-             $("#leftplayer").attr("src", "../img/dead.PNG").attr("width", "300");
+             $("#leftplayer").attr("src", "../charge/img/dead.PNG").attr("width", "300");
         } else if(CPULives < 1){
              $("h4,table,.end").remove();
              $("body").append("<h3 style='font-family: Verdana;'><b>"+ clientuser + " wins!</b></h3>");
              $("#rightplayer").attr("src", "").attr("width", "0");
-             $("#rightplayer").attr("src", "../img/dead.PNG").attr("width", "300");
+             $("#rightplayer").attr("src", "../charge/img/dead.PNG").attr("width", "300");
         } else {
             $("#movepick").remove();
             setTimeout(gui, 3500);
