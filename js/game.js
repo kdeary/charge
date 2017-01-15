@@ -19,8 +19,8 @@ function start() {
 }
 
 function gui(){
-  $("#leftplayer").attr("src", "./img/stay.png").attr("width", "130");
-  $("#rightplayer").attr("src", "./img/stay.png").attr("width", "130");
+  $("#leftplayer").attr("src", "./img/stay.PNG").attr("width", "130");
+  $("#rightplayer").attr("src", "./img/stay.PNG").attr("width", "130");
   $(".gui").append("<h4 id='movepick'>What move are you going to use? <button onclick='charge();' style='color: yellow;'>Charge</button><button onclick='attack();' style='color: red;'>Attack</button><button onclick='block();' style='color: lightgray;'>Block</button><button onclick='endgame();'>End Game</button></h4><br class='end'>");
 }
 
@@ -105,7 +105,7 @@ function resumeGame(){
           $("#leftplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
         } else {
           $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "../img/stay.png").attr("width", staysize);
+          $("#leftplayer").attr("src", "../img/stay.PNG").attr("width", staysize);
         }
     }
     if(cpumove == "Attack"){
@@ -126,7 +126,7 @@ function resumeGame(){
           $("#rightplayer").attr("src", "../img/hit.gif").attr("width", hitsize);
         }else{
           $("#leftplayer").attr("src", "").attr("width", "0");
-          $("#leftplayer").attr("src", "../img/stay.png").attr("width", staysize);
+          $("#leftplayer").attr("src", "../img/stay.PNG").attr("width", staysize);
         }
     }
     turnWrapup();
@@ -137,12 +137,12 @@ function resumeGame(){
              $("h4,table,.end").remove();
              $("body").append("<h4>"+ foe + " wins!</h4>");
              $("#leftplayer").attr("src", "").attr("width", "0");
-             $("#leftplayer").attr("src", "../img/dead.png").attr("width", "300");
+             $("#leftplayer").attr("src", "../img/dead.PNG").attr("width", "300");
         } else if(CPULives < 1){
              $("h4,table,.end").remove();
              $("body").append("<h3 style='font-family: Verdana;'><b>"+ clientuser + " wins!</b></h3>");
              $("#rightplayer").attr("src", "").attr("width", "0");
-             $("#rightplayer").attr("src", "../img/dead.png").attr("width", "300");
+             $("#rightplayer").attr("src", "../img/dead.PNG").attr("width", "300");
         } else {
             $("#movepick").remove();
             setTimeout(gui, 3500);
