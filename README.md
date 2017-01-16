@@ -16,7 +16,7 @@ The page has been updated to version 1.1.0 aka Conifer!<br>
 
 * Ties
 * Animation Glitches
-<hr>
+
 <h2>1/15/17 - Charge: Conifer is Coming!</h2>
 ![Conifer](https://hydrosaur.github.io/charge/img/coniferlogo.png)<br>
 A new Version of Charge is set to come!<br>
