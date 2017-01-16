@@ -4,6 +4,7 @@ body {
 
 #title {
   margin: 0 auto;
+  text-align: center;
   font-family: sans-serif;
 }
 
@@ -40,6 +41,30 @@ button {
     -o-transform: scale(-1, 1);
     -khtml-transform: scale(-1, 1);
     -ms-transform: scale(-1, 1);
+}
+
+#leftlivesheader {
+  position: absolute;
+  top: 0%;
+  left: 26.5%;
+}
+
+#rightlivesheader {
+  position: absolute;
+  top: 0%;
+  right: 26.5%;
+}
+
+#leftchargeheader {
+  position: absolute;
+  top: 0%;
+  left: 9%;
+}
+
+#rightchargeheader {
+  position: absolute;
+  top: 0%;
+  right: 9%;
 }
 
 #leftlives {
