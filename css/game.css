@@ -7,7 +7,7 @@ body {
   font-family: sans-serif;
 }
 
-h4,h3 {
+h1,h4,h3,h5 {
   font-family: Verdana;
 }
 
@@ -17,8 +17,16 @@ th, td {
 }
 
 button {
-  background-color: gray;
+  background-color: white;
+  font-size: 30px;
   border-style: none;
+  cursor: pointer;
+}
+
+.icon {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
 }
 
 .wrapup {
@@ -32,4 +40,116 @@ button {
     -o-transform: scale(-1, 1);
     -khtml-transform: scale(-1, 1);
     -ms-transform: scale(-1, 1);
+}
+
+#leftlives {
+    position: absolute;
+    width: 15%;
+    height: 30px;
+    background-color: tomato;
+    top: 7%;
+    left: 22%;
+}
+#leftbar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: green;
+}
+
+#rightlives {
+    position: absolute;
+    width: 15%;
+    height: 30px;
+    background-color: tomato;
+    top: 7%;
+    left: 62.5%;
+}
+#rightbar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: green;
+}
+
+#leftcharge {
+    position: absolute;
+    width: 20%;
+    height: 30px;
+    background-color: grey;
+    top: 7%;
+    left: 1%;
+}
+#chargeleftbar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: yellow;
+}
+
+#rightcharge {
+    position: absolute;
+    width: 20%;
+    height: 30px;
+    background-color: grey;
+    top: 7%;
+    left: 78.5%;
+}
+#chargerightbar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: yellow;
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    font-family: Verdana;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
 }
