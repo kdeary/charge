@@ -3,7 +3,8 @@
 ### Play the Game <a href="hydrosaur.github.io/charge">here</a>.
 <hr>
 <h1>Status Log:</h1>
-<h2>1/15/17 - Charge: Vizen is Coming!</h2>
+<h2>1/15/17 - Charge: Conifer is Coming!</h2>
+![Conifer](https://hydrosaur.github.io/charge/img/coniferlogo.png)<br>
 A new Version of Charge is set to come!<br>
 With Better User Interface and Animation.
 <hr>
