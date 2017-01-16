@@ -8,6 +8,10 @@ body {
   font-family: sans-serif;
 }
 
+#startbtn{
+  border: 2px solid lightgray;
+}
+
 h1,h4,h3,h5 {
   font-family: Verdana;
 }
