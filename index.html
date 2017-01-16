@@ -5,16 +5,36 @@
 	<link href="css/game.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-	<script src="js/game.js"></script>
 </head>
 <body>
 	<h1 id="title">Charge!</h1><br>
-	<button onclick="start();">Start!</button><br>
+	<button onclick="start();" id="startbtn">Start!</button><br>
+	<h3 id="leftlivesheader">Health:</h3>
+	<div id="leftlives" class="bar">
+  	<div id="leftbar"></div>
+	</div>
+	<h3 id="rightlivesheader">Health:</h3>
+	<div id="rightlives" class="bar">
+  	<div id="rightbar"></div>
+	</div>
+	<h3 id="leftchargeheader">Charge:</h3>
+	<div id="leftcharge" class="bar">
+  	<div id="chargeleftbar"></div>
+	</div>
+	<h3 id="rightchargeheader">Charge:</h3>
+	<div id="rightcharge" class="bar">
+  	<div id="chargerightbar"></div>
+	</div>
+	<h5 id="comment"></h5><br>
 <div id="battle">
-	<img src="" width="" id="leftplayer" >
-	<img src="" width="" id="rightplayer" class="flipped">
+	<div class="popup">
+		<img src="" width="" id="leftplayer" >
+  	<span class="popuptext" id="gametips">I can't attack if I dont have any charge!</span>
+	</div>
+		<img src="" width="" id="rightplayer" class="flipped">
 </div>
 	<h4 class="gui"></h4>
 	<h4 class="text"></h4>
 </body>
+<script src="js/game.js"></script>
 </html>
