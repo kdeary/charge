@@ -16,6 +16,7 @@ var staysize = '120';
 var hitsize = '330';
 
 $(".bar").css("display", "none");
+$(".headers").css("display", "none");
 $("#leftbar").css("width", (userLives * 33 + 1) + '%');
 $("#rightbar").css("width", (CPULives * 33 + 1) + '%');
 $("#chargeleftbar").css("width", (userCharge * 25) + '%');
@@ -32,6 +33,7 @@ function gui(){
   $("#rightplayer").attr("src", "./img/stay.PNG").attr("width", staysize);
   $(".gui").append("<div id='movepick'><h3>What move are you going to use?<br></h3><button onclick='charge();'><img src='../charge/img/electric.png' class='icon'></button><button onclick='attack();'><img src='../charge/img/dualsword.png' class='icon'></button><button onclick='block();'><img src='../charge/img/shield.png' class='icon'></button><br><button onclick='endgame();'>End Game</button></div><br class='end'>");
   $(".bar").css("display", "block");
+  $(".headers").css("display", "block");
 }
 
 function turnWrapup() {
